@@ -191,17 +191,21 @@ error = function(e)
   return(NA))  
   }
 
-# here rho1
+# Assuming that residual of all three equations are mutually uncorrelated, 
+# rhoi accounts for the compound coefficient for error variance of i equation.
+# Here qi is the associated probability of each specification. 
+# gamma here is a trend of the error variance
+# choosing these values is an iterative process done with the following function.
+
 
 st <-
   expand.grid(
-    rho1 = 0.09,
-    rho2 = 1.251976,
-    rho3 = 0.5,
-    rho4 = 0.67,
-    q1 = 0.1,
-    q2 = -3.42,
-    gamma = -3.26
+    rho1 = c(0.09),
+    rho2 = c(1.251976),
+    rho3 = c(0.5),
+    q1 = c(0.1),
+    q2 = c(-3.42),
+    gamma = c(-3.26)
   )
 
 maxLik_list <-
@@ -209,7 +213,6 @@ maxLik_list <-
       st$rho1,
       st$rho2,
       st$rho3,
-      st$rho4,
       st$q1,
       st$q2,
       st$gamma) 
