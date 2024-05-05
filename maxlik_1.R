@@ -35,10 +35,10 @@ d2 <- as.numeric(WS$d2)
 d3 <- as.numeric(WS$d3)
 
 
-# II.  Initial Values for Maximum likelihood----
+# II.  Initial Values for Maximum Likelihood ----
 
-# In this step, initial values for the maximum likelihood estimation using a ordinary
-# stage least square method is estimated. In this case since it is multi-choice-multi-indicators
+# In this step, initial values for the maximum likelihood estimation using an ordinary
+# least square method are estimated. In this case, since it is multi-choice-multi-indicators
 # 3SLS is used. Other options include 2sls and GMM.
 
 library(systemfit)
@@ -191,7 +191,7 @@ error = function(e)
   return(NA))  
   }
 
-# Assuming that residual of all three equations are mutually uncorrelated, 
+# Assuming that the residual of all three equations are mutually uncorrelated, 
 # rhoi accounts for the compound coefficient for error variance of i equation.
 # Here qi is the associated probability of each specification. 
 # gamma here is a trend of the error variance
@@ -318,7 +318,7 @@ G<-pload_g(2,3)
 
 rcor(dta)["rho23",]/(t(G)%*%V0%*%G)
 
-#IV Bootstraping the estimates----
+#IV Bootstrapping the estimates----
 
 library(boot)
 library(parallel)
