@@ -194,7 +194,7 @@ error = function(e)
 # Assuming that the residual of all three equations are mutually uncorrelated, 
 # rhoi accounts for the compound coefficient for error variance of i equation.
 # Here qi is the associated probability of each specification. 
-# gamma here is a trend of the error variance
+# gamma here is a trend of the error covariance
 # choosing these values is an iterative process done with the following function.
 
 
@@ -227,7 +227,7 @@ latex <- function(dta) {
 }
 
 
-#III.A Residual Correlation----
+#III.A Residual Covariance----
 
 rcor<-function(dta){
   rho1 <- dta$estimate["rho1"]
@@ -299,20 +299,20 @@ pload_g<-function(i,j){
 }
 
 
-#Standard Error for residual correlation rho_12
+#Standard Error for residual covariance rho_12
 V0<-pload_3(b,V,1,2)
 G<-pload_g(1,2)
 
 rcor(dta)["rho12",]/(t(G)%*%V0%*%G)
 
-#Standard Error for residual correlation rho_13
+#Standard Error for residual covariance rho_13
 V0<-pload_3(b,V,1,3)
 G<-pload_g(1,3)
 
 rcor(dta)["rho13",]/(t(G)%*%V0%*%G)
 
 
-#Standard Error for residual correlation rho_23
+#Standard Error for residual covariance rho_23
 V0<-pload_3(b,V,2,3)
 G<-pload_g(2,3)
 
