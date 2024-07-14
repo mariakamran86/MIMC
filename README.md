@@ -1,4 +1,4 @@
-**Multiple Indicator Multiple Cause (MIMIC) Model with Discrete Indicators**
+**Multiple Indicator Multiple Cause (MIMC) Model with Discrete Indicators**
 
 *Maria Kamran*
 
